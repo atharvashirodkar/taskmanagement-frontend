@@ -1,22 +1,13 @@
-type TaskStatus = "pending" | "in-progress" | "completed";
-
-interface TaskCardProps {
-    id: number;
-    title: string;
-    description: string;
-    status: TaskStatus;
-    createdAt: string;
-    updatedAt: string;
-}
+import type { Task } from "../../types/task.types";
 
 const TaskCard = ({
     id,
     title,
     description,
     status,
-    createdAt,
-    updatedAt,
-}: TaskCardProps) => {
+    created_at,
+    updated_at,
+}: Task) => {
     const statusStyles = {
         pending: "bg-amber-50 text-amber-700",
         "in-progress": "bg-blue-50 text-blue-700",
@@ -58,8 +49,8 @@ const TaskCard = ({
             {/* Footer */}
             <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-4">
                 <div className="text-xs text-slate-400">
-                    <p>Created: {createdAt}</p>
-                    <p className="mt-1">Updated: {updatedAt}</p>
+                    <p>Created: {created_at}</p>
+                    <p className="mt-1">Updated: {updated_at}</p>
                 </div>
 
                 <div className="flex gap-2">
